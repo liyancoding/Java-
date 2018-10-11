@@ -1,6 +1,6 @@
-package com.ly.concurrency.count;
+package com.ly.concurrency.atomic;
 
-import com.ly.concurrency.annoations.NotThreadSafe;
+import com.ly.concurrency.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +9,8 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.LongAdder;
 
 /**
  * @Author: LiYan
@@ -18,8 +20,8 @@ import java.util.concurrent.Semaphore;
  */
 
 @Slf4j
-@NotThreadSafe
-public class CountExample4 {
+@ThreadSafe
+public class AtomicExample2 {
 
     // 请求的总数
     public static int clientTotal = 5000;
@@ -28,11 +30,10 @@ public class CountExample4 {
     public static int threadTotal = 200;
 
     // 计数
-    // 可见性并不能保证原子性
-    public volatile static int count = 0;
+    public static LongAdder count = new LongAdder();
 
     public static void add() {
-        count++;
+        count.increment();
     }
 
     public static void main(String[] args) throws InterruptedException {

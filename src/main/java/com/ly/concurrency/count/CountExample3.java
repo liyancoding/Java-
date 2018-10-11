@@ -1,10 +1,10 @@
 package com.ly.concurrency.count;
 
+import com.ly.concurrency.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.concurrent.ThreadSafe;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -21,8 +21,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Slf4j
 @ThreadSafe
 public class CountExample3 {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(CountExample3.class);
 
     // 请求的总数
     public static int clientTotal = 5000;
@@ -55,7 +53,7 @@ public class CountExample3 {
                     add();
                     semaphore.release();
                 } catch (InterruptedException e) {
-                    LOGGER.error("exception", e);
+                    log.error("exception", e);
                 }
                 countDownLatch.countDown();
             });
@@ -63,6 +61,6 @@ public class CountExample3 {
 
         countDownLatch.await();
         es.shutdown();
-        LOGGER.info("count:{}",count);
+        log.info("count:{}",count);
     }
 }

@@ -24,8 +24,6 @@ import java.util.concurrent.atomic.AtomicLong;
 @ThreadSafe
 public class AtomicExample1 {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AtomicExample1.class);
-
     // 请求的总数
     public static int clientTotal = 5000;
 
@@ -54,7 +52,7 @@ public class AtomicExample1 {
                     add();
                     semaphore.release();
                 } catch (InterruptedException e) {
-                    LOGGER.error("exception", e);
+                    log.error("exception", e);
                 }
                 countDownLatch.countDown();
             });
@@ -62,6 +60,6 @@ public class AtomicExample1 {
 
         countDownLatch.await();
         es.shutdown();
-        LOGGER.info("count:{}",count);
+        log.info("count:{}",count);
     }
 }

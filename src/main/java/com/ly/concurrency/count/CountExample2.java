@@ -1,11 +1,11 @@
 package com.ly.concurrency.count;
 
 import com.ly.concurrency.annoations.NotThreadSafe;
+import com.ly.concurrency.annoations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.concurrent.ThreadSafe;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

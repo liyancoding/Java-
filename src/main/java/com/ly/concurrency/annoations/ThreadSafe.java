@@ -17,6 +17,6 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.SOURCE)
-public @interface TheadSafe {
+public @interface ThreadSafe {
     String value() default "";
 }
