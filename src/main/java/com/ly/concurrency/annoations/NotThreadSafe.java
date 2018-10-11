@@ -13,7 +13,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 线程不安全的类用这个注解标注一下
+ * 用来标记【不安全】的类或者写法
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.SOURCE)
