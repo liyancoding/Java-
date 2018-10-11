@@ -11,6 +11,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @Author: LiYan
@@ -32,7 +33,7 @@ public class AtomicExample1 {
     public static int threadTotal = 200;
 
     // 计数
-    public static AtomicInteger count = new AtomicInteger();
+    public static AtomicLong count = new AtomicLong();
 
     public static void add() {
         count.incrementAndGet();
