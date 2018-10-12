@@ -1,8 +1,6 @@
 package com.ly.concurrency.singleton;
 
 import com.ly.concurrency.annoations.NotThreadSafe;
-import com.ly.concurrency.annoations.ThreadSafe;
-
 /**
  * @Author: LiYan
  * @Description:
@@ -30,5 +28,10 @@ public class SingletonExample2 {
             instance = new SingletonExample2();
         }
         return instance;
+    }
+
+    public static void main(String[] args){
+        System.out.println(getInstance().hashCode());
+        System.out.println(getInstance().hashCode());
     }
 }
